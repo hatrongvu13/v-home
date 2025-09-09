@@ -1,8 +1,9 @@
-name: Build proto model
+name: Build Model proto
 
 on:
   push:
-    - path: '/model-proto/*'
+    paths:
+      - '/model-proto/*'
 
 jobs:
   build-and-push:
