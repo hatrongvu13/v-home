@@ -1,0 +1,10 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.htv.proto.product";
+
+message ProductProto {
+  int64 id = 1;
+  string productName = 2;
+  string productDescription = 3;
+}
