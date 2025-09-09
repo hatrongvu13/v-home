@@ -21,5 +21,6 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GIT_TOKEN }}
         run: |
           cd /model-proto
+          pwd
           mvn -B package --file pom.xml
           mvn -B deploy --file pom.xml
