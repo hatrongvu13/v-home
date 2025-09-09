@@ -3,7 +3,7 @@ name: Build services project
 on:
   push:
     paths:
-      - '/services/**'
+      - '/services/*'
 
 jobs:
   build-services:
