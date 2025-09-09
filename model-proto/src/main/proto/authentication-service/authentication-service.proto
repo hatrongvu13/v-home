@@ -1,0 +1,21 @@
+syntax = 'proto3';
+
+option java_multiple_files = true;
+option java_package = 'com.htv.proto.authentication';
+
+message AuthenticationProto {
+  int64 id = 1;
+  string username = 2;
+  string title = 3;
+  string content = 4;
+}
+
+message AuthenticationResponseProto {
+  int64 id = 1;
+  string username = 2;
+  string data = 3;
+}
+
+service AuthenticationProtoService {
+  rpc verifyAuthentication(AuthenticationProto) returns (AuthenticationResponseProto);
+}
