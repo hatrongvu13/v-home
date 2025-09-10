@@ -1,0 +1,12 @@
+syntax = 'proto3';
+
+option java_multiple_files = true;
+option java_package = 'com.htv.proto.payment';
+
+message PaymentProto {
+  int64 id = 1;
+  string transaction = 2;
+  string amount = 3;
+  string from = 4;
+  string to = 5;
+}
