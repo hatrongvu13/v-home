@@ -10,3 +10,7 @@ message ProductProto {
   string amount = 4;
   string description = 5;
 }
+
+service ProductProtoService {
+  rpc saveProduct(ProductProto) returns(ProductProto);
+}
