@@ -3,7 +3,7 @@ name: Build Model proto
 on:
   push:
     paths:
-      - './model-proto'
+      - './model-proto/**'
 #    branches:
 #      - main  # Chạy workflow này khi có sự thay đổi trên nhánh chính (main)
 #  pull_request:
