@@ -3,7 +3,12 @@ name: Build Model proto
 on:
   push:
     paths:
-      - '/model-proto/*'
+      - 'model-proto/**'
+#    branches:
+#      - main  # Chạy workflow này khi có sự thay đổi trên nhánh chính (main)
+#  pull_request:
+#    branches:
+#      - main  # Chạy workflow khi có pull request vào nhánh chính
 
 jobs:
   build-and-push:
@@ -20,7 +25,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GIT_TOKEN }}
         run: |
-          cd /model-proto
+          cd ./model-proto
           pwd
           mvn -B package --file pom.xml
           mvn -B deploy --file pom.xml
