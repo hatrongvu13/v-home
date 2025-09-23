@@ -1,0 +1,57 @@
+security:
+  authentication:
+    jwt:
+      # This token must be encoded using Base64 and be at least 256 bits long (you can type `openssl rand -base64 64` on your command line to generate a 512 bits one)
+      secret: ${SECURITY_AUTHENTICATION_JWT_SECRET:OGEzMWZkOTQzYTI3ZjMwNTJmNTEwYjUwZjMxN2ZiOTljODgyODhkNTkwMzllYWIyYjVhOTMzNzZkYzM4MzI0NDFmMzJhNmQwZTExNjU3ZTBkZmNmZTY2MzlkYjVlZmNlMjI0M2Y3MWUzN2YwMjczYTU4YmFjZGU0M2MzNzZiNDc=}
+      # Token is valid 24 hours
+      token-validity-in-seconds: ${JWT_TOKEN_VALIDITY_IN_SECONDS:86400}
+      token-validity-in-seconds-for-remember-me: 2592000
+    permit-all:
+      - /api/user/login
+      - /api/user/register
+    cross-origin:
+      - "*"
+    credentials: false
+    allowed-headers:
+      - Content-Type
+      - Authorization
+    allowed-methods:
+      - POST
+      - GET
+      - PUT
+      - DELETE
+      - OPTIONS
+server:
+  port: 8888
+  servlet:
+    context-path: /x-platform
+spring:
+  application:
+    name: x-platform
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          jwk-set-uri: http://localhost:9000/oauth2/jwks
+  graphql:
+    graphiql:
+      enabled: ${GRAPHIQL_ENABLED:true}
+    path: /x-graphql
+  datasource:
+    #    url: ${DATASOURCE_URL:jdbc:postgresql://postgres:5432/user-manager}
+    #    username: ${POSTGRES_USERNAME:root}
+    #    password: ${POSTGRES_PASSWORD:root}
+    #    driver-class-name: org.postgresql.Driver
+    hikari:
+      connection-timeout: 50000
+      max-lifetime: 900000
+      minimum-idle: 1
+      pool-name: '${spring.application.name}-pool'
+      maximum-pool-size: 20
+  jpa:
+    hibernate:
+      ddl-auto: ${HIBERNATE_DDL_AUTO:create-drop}
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
