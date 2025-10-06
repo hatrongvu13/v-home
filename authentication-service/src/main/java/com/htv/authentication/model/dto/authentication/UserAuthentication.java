@@ -1,4 +1,4 @@
-package com.htv.authentication.model.authentication;
+package com.htv.authentication.model.dto.authentication;
 
 import lombok.Data;
 import org.springframework.security.core.Authentication;

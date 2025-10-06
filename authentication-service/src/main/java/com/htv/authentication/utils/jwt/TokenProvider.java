@@ -1,6 +1,6 @@
 package com.htv.authentication.utils.jwt;
 
-import com.htv.authentication.model.authentication.UserAuthentication;
+import com.htv.authentication.model.dto.authentication.UserAuthentication;
 import com.nimbusds.jose.*;
 import com.nimbusds.jose.crypto.MACSigner;
 import com.nimbusds.jose.crypto.MACVerifier;

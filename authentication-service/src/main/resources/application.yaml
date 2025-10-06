@@ -36,7 +36,8 @@ spring:
   graphql:
     graphiql:
       enabled: ${GRAPHIQL_ENABLED:true}
-    path: /x-graphql
+    http:
+      path: /x-graphql
   datasource:
     #    url: ${DATASOURCE_URL:jdbc:postgresql://postgres:5432/user-manager}
     #    username: ${POSTGRES_USERNAME:root}

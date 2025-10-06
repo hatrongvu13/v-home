@@ -61,7 +61,7 @@ public class WebSecurityConfig {
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
-        if (securityProperties.getCrossOrigin().size() == 1) {
+        if (securityProperties.getCrossOrigin().size() > 1) {
             configuration.setAllowedOrigins(securityProperties.getCrossOrigin());
         } else {
             configuration.addAllowedOrigin(securityProperties.getCrossOrigin().get(0));
